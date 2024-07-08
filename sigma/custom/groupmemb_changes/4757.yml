@@ -1,0 +1,24 @@
+title: Member Removed from Security-Enabled Universal Group
+id: 4757-member-removed-security-enabled-universal-group
+description: Detects when a member is removed from a security-enabled universal group.
+status: experimental
+author: Starfunkel
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID: 4757
+    condition: selection
+fields:
+    - EventID
+    - MemberName
+    - GroupName
+    - GroupDomain
+    - SubjectUserName
+    - SubjectDomainName
+falsepositives:
+    - Legitimate member removal
+level: medium
+tags:
+    - attack.persistence

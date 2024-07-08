@@ -1,0 +1,23 @@
+title: Security-Enabled Local Group Deletion
+id: 4734-security-enabled-local-group-deletion
+description: Detects when a security-enabled local group is deleted.
+status: experimental
+author: Starfunkel
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID: 4734
+    condition: selection
+fields:
+    - EventID
+    - GroupName
+    - GroupDomain
+    - SubjectUserName
+    - SubjectDomainName
+falsepositives:
+    - Legitimate local group deletion
+level: medium
+tags:
+    - attack.persistence

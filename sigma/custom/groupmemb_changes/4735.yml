@@ -1,0 +1,23 @@
+title: Security-Enabled Local Group Change
+id: 4735-security-enabled-local-group-change
+description: Detects when a security-enabled local group is changed.
+status: experimental
+author: Starfunkel
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID: 4735
+    condition: selection
+fields:
+    - EventID
+    - GroupName
+    - GroupDomain
+    - SubjectUserName
+    - SubjectDomainName
+falsepositives:
+    - Legitimate local group changes
+level: medium
+tags:
+    - attack.persistence

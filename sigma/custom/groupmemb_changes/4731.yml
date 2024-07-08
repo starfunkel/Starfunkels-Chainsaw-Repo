@@ -1,0 +1,23 @@
+title: Security-Enabled Local Group Creation
+id: 4731-security-enabled-local-group-creation
+description: Detects when a security-enabled local group is created.
+status: experimental
+author: Starfunkel
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID: 4731
+    condition: selection
+fields:
+    - EventID
+    - GroupName
+    - GroupDomain
+    - SubjectUserName
+    - SubjectDomainName
+falsepositives:
+    - Legitimate local group creation
+level: medium
+tags:
+    - attack.persistence

@@ -1,0 +1,24 @@
+title: Member Added to Security-Enabled Global Group
+id: 4728-member-added-security-enabled-global-group
+description: Detects when a member is added to a security-enabled global group.
+status: experimental
+author: Starfunkel
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID: 4728
+    condition: selection
+fields:
+    - EventID
+    - MemberName
+    - GroupName
+    - GroupDomain
+    - SubjectUserName
+    - SubjectDomainName
+falsepositives:
+    - Legitimate member addition
+level: medium
+tags:
+    - attack.persistence

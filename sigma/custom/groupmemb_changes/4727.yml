@@ -1,0 +1,23 @@
+title: Security-Enabled Global Group Creation
+id: 4727-security-enabled-global-group-creation
+description: Detects when a security-enabled global group is created.
+status: experimental
+author: Starfunkel
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID: 4727
+    condition: selection
+fields:
+    - EventID
+    - GroupName
+    - GroupDomain
+    - SubjectUserName
+    - SubjectDomainName
+falsepositives:
+    - Legitimate global group creation
+level: medium
+tags:
+    - attack.persistence

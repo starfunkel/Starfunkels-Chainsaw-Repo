@@ -1,0 +1,24 @@
+title: Member Removed from Security-Enabled Global Group
+id: 4729-member-removed-security-enabled-global-group
+description: Detects when a member is removed from a security-enabled global group.
+status: experimental
+author: Starfunkel
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID: 4729
+    condition: selection
+fields:
+    - EventID
+    - MemberName
+    - GroupName
+    - GroupDomain
+    - SubjectUserName
+    - SubjectDomainName
+falsepositives:
+    - Legitimate member removal
+level: medium
+tags:
+    - attack.persistence

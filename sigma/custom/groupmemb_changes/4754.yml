@@ -1,0 +1,23 @@
+title: Security-Enabled Universal Group Creation
+id: 4754-security-enabled-universal-group-creation
+description: Detects when a security-enabled universal group is created.
+status: experimental
+author: Starfunkel
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID: 4754
+    condition: selection
+fields:
+    - EventID
+    - GroupName
+    - GroupDomain
+    - SubjectUserName
+    - SubjectDomainName
+falsepositives:
+    - Legitimate universal group creation
+level: medium
+tags:
+    - attack.persistence

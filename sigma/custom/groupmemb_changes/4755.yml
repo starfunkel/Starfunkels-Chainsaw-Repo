@@ -1,0 +1,23 @@
+title: Security-Enabled Universal Group Change
+id: 4755-security-enabled-universal-group-change
+description: Detects when a security-enabled universal group is changed.
+status: experimental
+author: Starfunkel
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID: 4755
+    condition: selection
+fields:
+    - EventID
+    - GroupName
+    - GroupDomain
+    - SubjectUserName
+    - SubjectDomainName
+falsepositives:
+    - Legitimate universal group changes
+level: medium
+tags:
+    - attack.persistence

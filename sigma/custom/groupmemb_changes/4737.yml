@@ -1,0 +1,23 @@
+title: Security-Enabled Global Group Change
+id: 4737-security-enabled-global-group-change
+description: Detects when a security-enabled global group is changed.
+status: experimental
+author: Starfunkel
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID: 4737
+    condition: selection
+fields:
+    - EventID
+    - GroupName
+    - GroupDomain
+    - SubjectUserName
+    - SubjectDomainName
+falsepositives:
+    - Legitimate global group changes
+level: medium
+tags:
+    - attack.persistence
