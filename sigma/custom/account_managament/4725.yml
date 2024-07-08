@@ -1,0 +1,22 @@
+title: User Account Disabled
+id: 4725-user-account-disabled
+description: Detects user account disablement events
+status: experimental
+author: Starfunkel
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID: 4725
+    condition: selection
+fields:
+    - EventID
+    - TargetUserName
+    - SubjectUserName
+falsepositives:
+    - Legitimate administrative actions
+level: medium
+tags:
+    - attack.persistence
+    - attack.privilege_escalation

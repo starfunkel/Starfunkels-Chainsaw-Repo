@@ -1,0 +1,21 @@
+title: Password Change Attempt
+id: 4723-password-change-attempt
+description: Detects attempts to change account passwords
+status: experimental
+author: Starfunkel
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID: 4723
+    condition: selection
+fields:
+    - EventID
+    - TargetUserName
+    - SubjectUserName
+falsepositives:
+    - Legitimate user or administrative actions
+level: medium
+tags:
+    - attack.credential_access

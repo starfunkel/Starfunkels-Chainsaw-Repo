@@ -1,0 +1,22 @@
+title: User Account Created
+id: 4720-user-account-created
+description: Detects user account creation events
+status: experimental
+author: Starfunkel
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID: 4720
+    condition: selection
+fields:
+    - EventID
+    - TargetUserName
+    - SubjectUserName
+falsepositives:
+    - Legitimate administrative actions
+level: medium
+tags:
+    - attack.persistence
+    - attack.privilege_escalation

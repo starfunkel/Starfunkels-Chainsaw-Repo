@@ -1,0 +1,22 @@
+title: User Account Changed
+id: 4738-user-account-changed
+description: Detects changes to user account properties
+status: experimental
+author: Starfunkel
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID: 4738
+    condition: selection
+fields:
+    - EventID
+    - TargetUserName
+    - SubjectUserName
+falsepositives:
+    - Legitimate administrative actions
+level: medium
+tags:
+    - attack.persistence
+    - attack.privilege_escalation

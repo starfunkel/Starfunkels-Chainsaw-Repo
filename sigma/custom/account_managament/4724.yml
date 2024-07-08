@@ -1,0 +1,21 @@
+title: Password Reset Attempt
+id: 4724-password-reset-attempt
+description: Detects attempts to reset account passwords
+status: experimental
+author: Starfunkel
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID: 4724
+    condition: selection
+fields:
+    - EventID
+    - TargetUserName
+    - SubjectUserName
+falsepositives:
+    - Legitimate administrative actions
+level: medium
+tags:
+    - attack.credential_access

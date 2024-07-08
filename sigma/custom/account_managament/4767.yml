@@ -1,0 +1,21 @@
+title: User Account Unlocked
+id: 4767-user-account-unlocked
+description: Detects user account unlock events
+status: experimental
+author: Starfunkel
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID: 4767
+    condition: selection
+fields:
+    - EventID
+    - TargetUserName
+    - SubjectUserName
+falsepositives:
+    - Legitimate administrative actions
+level: medium
+tags:
+    - attack.credential_access

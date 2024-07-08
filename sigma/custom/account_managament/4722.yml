@@ -1,0 +1,22 @@
+title: User Account Enabled
+id: 4722-user-account-enabled
+description: Detects user account enabled events
+status: experimental
+author: Starfunkel
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID: 4722
+    condition: selection
+fields:
+    - EventID
+    - TargetUserName
+    - SubjectUserName
+falsepositives:
+    - Legitimate administrative actions
+level: medium
+tags:
+    - attack.persistence
+    - attack.privilege_escalation
