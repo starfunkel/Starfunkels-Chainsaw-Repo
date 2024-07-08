@@ -1,0 +1,22 @@
+title: Kerberos Service Ticket Requested
+id: 4769-kerberos-service-ticket-requested
+description: Detects Kerberos service ticket requests
+status: experimental
+author: Starfunkel
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID: 4769
+    condition: selection
+fields:
+    - EventID
+    - TargetUserName
+    - IpAddress
+    - ServiceName
+falsepositives:
+    - Legitimate authentication requests
+level: medium
+tags:
+    - attack.credential_access

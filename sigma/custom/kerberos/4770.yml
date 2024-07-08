@@ -1,0 +1,17 @@
+title: Kerberos Service Ticket Renewed
+id: 4770-kerberos-service-ticket-renewed
+description: Detects Kerberos service ticket renewals
+status: experimental
+author: Starfunkel
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID: 4770
+    condition: selection
+fields:
+    - EventID
+    - TargetUserName
+    - IpAddress
+    - Service

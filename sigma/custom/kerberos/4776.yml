@@ -1,0 +1,23 @@
+title: Credential Validation Attempt
+id: 4776-credential-validation-attempt
+description: Detects when the computer attempts to validate credentials for an account.
+status: experimental
+author: Starfunkel
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID: 4776
+    condition: selection
+fields:
+    - EventID
+    - AccountName
+    - AccountDomain
+    - LogonType
+    - Status
+falsepositives:
+    - Legitimate credential validation requests
+level: medium
+tags:
+    - attack.credential_access

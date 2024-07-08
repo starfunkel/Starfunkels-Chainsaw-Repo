@@ -1,0 +1,21 @@
+title: Kerberos Pre-Authentication Failed
+id: 4771-kerberos-pre-authentication-failed
+description: Detects when Kerberos pre-authentication fails.
+status: experimental
+author: Starfunkel
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID: 4771
+    condition: selection
+fields:
+    - EventID
+    - SubjectUserName
+    - FailureCode
+falsepositives:
+    - Incorrect user credentials entered
+level: medium
+tags:
+    - attack.credential_access
