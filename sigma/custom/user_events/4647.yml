@@ -1,0 +1,22 @@
+title: Successful User Logon
+id: f82d2c27-9b57-40b3-a63d-8e9b9818b8d2
+description: An account was logged off.
+status: experimental
+author: Starfunkel
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID: 4647
+    condition: selection
+fields:
+    - EventID
+    - TargetUserName
+    - IpAddress
+    - WorkstationName
+falsepositives:
+    - Unknown
+level: low
+tags:
+    - attack.persistence

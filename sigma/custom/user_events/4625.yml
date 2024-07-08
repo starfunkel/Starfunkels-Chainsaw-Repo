@@ -1,6 +1,6 @@
 title: Successful User Logon
 id: f82d2c27-9b57-40b3-a63d-8e9b9818b8d2
-description: Detects successful logon events
+description: An account failed to log on.
 status: experimental
 author: Starfunkel
 logsource:
