@@ -1,6 +1,6 @@
-title: user init logoff
-id: f82d2c27-9b57-40b3-a63d-8e9b9818b8d4
-description: Detects user-initiated logoff events
+title: The workstation was unlocked
+id: f82d2c27-9b57-40b3-a63d-8e9b9818b8d28
+description: Detects the workstation was unlocked
 status: experimental
 author: Starfunkel
 logsource:
@@ -8,7 +8,7 @@ logsource:
     service: security
 detection:
     selection:
-        EventID: 4647
+        EventID: 4801
     condition: selection
 fields:
     - EventID

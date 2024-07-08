@@ -1,6 +1,6 @@
-title: Successful User Logon
+title: Unsuccessful User Logon
 id: f82d2c27-9b57-40b3-a63d-8e9b9818b8d2
-description: An account failed to log on.
+description: Detects failed logon attempts
 status: experimental
 author: Starfunkel
 logsource:
