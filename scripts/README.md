@@ -1,6 +1,6 @@
 ### Convert-Chainsaw_txt_to_csv.ps1
 
-The `Convert-Chainsaw_txt_to_csv.ps1` script file is an easy to use first impression script to quickly optain a csv file with artefact infoamtion.
+The `Convert-Chainsaw_txt_to_csv.ps1` script file is an easy to use first impression script to quickly optain a csv file with artefact information.
 
 For example use:
 ```Powershell
