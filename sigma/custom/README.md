@@ -1,4 +1,4 @@
-## Todo
+## Items covered
 
 Logon/Logoff Events
 
