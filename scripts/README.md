@@ -1,3 +1,12 @@
+### log-analysis.ps1
+
+The `log-analysis.ps1` script is in AIO (all in one) script to automatically convert *.evtx files into a csv file. It assumes that the Chainsaw binary is added to `$PATH` before using the script.
+
+Example:
+```powershell
+log-extract -EventID 4625
+```
+
 ### Convert-Chainsaw_txt_to_csv.ps1
 
 The `Convert-Chainsaw_txt_to_csv.ps1` script file is an easy to use first impression script to quickly optain a csv file with artefact information.
