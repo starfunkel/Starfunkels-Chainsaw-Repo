@@ -19,7 +19,8 @@ function log-extract  {
         [int]$EventID
     )
 
-    $outputFileTXT = "$EventID-Events.txt"
+    $date = Get-Date -Format "dd-MM-yyyy"
+    $outputFileTXT = "${date}_${EventID}-Events.txt"
     $searchTerm = 'Event.System.EventID: =' + $EventID
     
     # Start Chainsaw as helper binary
@@ -29,11 +30,11 @@ function log-extract  {
     Write-Host ""
     Write-Host "Writing $outputFileTXT finished" -ForegroundColor green
     Write-Host ""
-    Write-Host "Parsing $outputFileTXT and converting to $outputFileTXT" -ForegroundColor Green
+    Write-Host "Parsing $outputFileTXT and converting to csv"-ForegroundColor Green
 
     # Start conversion from txt to csv
     $fileContent = Get-Content -Path $outputFileTXT -Raw
-    $outputFileCSV = "$EventID-Events.csv"
+    $outputFileCSV = "${date}_${EventID}-Events.csv"
 
     Write-Host ""
     # Split the content into individual events
@@ -74,7 +75,9 @@ function log-extract  {
     
     # Select desired fields for CSV
     $fields = "Timestamp", "EventID", "LogonType", "IpAddress", "IpPort", "Computer", "ProcessName", "WorkstationName", "SubjectUserName", "TargetUserName", "Status", "SubStatus"
-    
+
+    Write-Host "Converting  $outputFileTXT... to $outputFileCSV" -ForegroundColor Green
     # Export event data to CSV with UTF-8 encoding
     $eventsData | Select-Object $fields | Export-Csv -Path $outputFileCSV -NoTypeInformation -Encoding UTF8
+
 }
